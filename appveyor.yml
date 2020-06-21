@@ -1,0 +1,12 @@
+  
+version: 1.0.{build}
+configuration: Debug
+platform: Any CPU
+before_build:
+- cmd: nuget restore ./Challenge.sln
+build:
+  project: Source/Source.csproj
+  verbosity: normal
+test_script:
+- cmd: cd Source.Test
+- cmd: dotnet test
